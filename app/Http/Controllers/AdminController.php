@@ -11,8 +11,15 @@ class AdminController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $data = Ticket::all();
+        $belum_ditukar = Ticket::where('status',0);
+        $sudah_ditukar = Ticket::where('status',1);
 
-        return view('admin.dashboard', compact('user'));
+        return view('admin.dashboard', [
+            'data' => $data,
+            'belum_ditukar' => $belum_ditukar,
+            'sudah_ditukar' => $sudah_ditukar,
+        ]);
     }
 
     public function show()
