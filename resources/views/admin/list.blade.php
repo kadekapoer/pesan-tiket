@@ -16,22 +16,34 @@
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
                     <tr>
+                      <th>Kode Tiket</th>
                       <th>Nama</th>
                       <th>email</th>
+                      <th>Status Penukaran</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach ($data as $d)
                     <tr>
+                      <td>{{$d->code}}</td>
                       <td>{{$d->name}}</td>
                       <td>{{$d->email}}</td>
+                      <td>
+                        @if($d->status == 0)
+                        <span class='badge badge-danger'>Belum terpakai</span>  
+                        @else
+                        <span class="badge badge-success">Sudah Terpakai</span>
+                        @endif
+                      </td>
                     </tr>
                     @endforeach
                     </tbody>
                     <tfoot>
                     <tr>
+                      <th>Kode Tiket</th>
                       <th>Nama</th>
                       <th>Email</th>
+                      <th>Status Penukaran</th>
                     </tr>
                     </tfoot>
                   </table>
