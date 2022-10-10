@@ -1,4 +1,4 @@
-<x-admin-layout title='List'>
+<x-admin-layout title='Daftar Pemesan Tiket'>
 
     @slot('style')
     <!-- DataTables -->
@@ -36,7 +36,7 @@
                         <span class="badge badge-success">Sudah Terpakai</span>
                         @endif
                       </td>
-                      <td> <a href='#' class="badge badge-info"><i class="fas fa-pen"></i> Update</a> | <a href="#" class="badge badge-danger"><i class="fa fa-trash"></i> Delete</a></td>
+                      <td> <a href='{{route('admin.edit', $d->id)}}' class="badge badge-info"><i class="fas fa-pen"></i> Update</a> | <form style="display: inline-block" action="{{route('admin.destroy', $d->id)}}" method="POST"> @csrf @method('delete')<button style="border: none" type="submit" href="#" class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></form></td>
                     </tr>
                     @endforeach
                     </tbody>

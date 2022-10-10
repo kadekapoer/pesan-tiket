@@ -27,4 +27,33 @@ class AdminController extends Controller
     {
         return view('admin.checkin');
     }
+
+    public function edit($id)
+    {
+        $data = Ticket::findOrFail($id);
+
+        return view('admin._form-edit-list', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $name = $request->name;
+        $email = $request->email;
+
+        $data = Ticket::findOrFail($id);
+
+        $data->update([
+            'name' => $name,
+            'email' => $email
+        ]);
+
+        return redirect('/admin/list');
+    }
+
+    public function destroy($id)
+    {
+        $data = Ticket::findOrFail($id);
+        $data->delete();
+        return redirect('/admin/list');
+    }
 }

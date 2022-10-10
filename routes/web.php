@@ -32,7 +32,11 @@ Route::get('login', [AuthController::class, 'index']);
 Route::post('login', [AuthController::class, 'login'])->name('login');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('list', [AdminController::class, 'show'])->name('admin.list');
     Route::get('checkin', [AdminController::class, 'checkin'])->name('admin.checkin');
+    Route::get('edit-list/{id}', [AdminController::class, 'edit'])->name('admin.edit');
+    Route::put('update-list/{id}', [AdminController::class, 'update'])->name('admin.update');
+    Route::delete('delete/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
 });
