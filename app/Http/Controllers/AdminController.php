@@ -63,4 +63,23 @@ class AdminController extends Controller
         $data->delete();
         return redirect('/admin/list');
     }
+
+    public function ticket_check(Request $request)
+    {
+    
+        $data = Ticket::where('code', $request->code);
+
+        if($data->exists()){
+            if(Ticket::where('code', $request->code)->where('status', '0')->first()){
+                $tiket = Ticket::where('code', $request->code);
+                $tiket->update(['status' => '1']);
+                return view('admin.update-status');
+            } else {
+                return view('admin.sudah-terpakai');
+            }
+        } else {
+            return view('admin.tidak-valid');
+        }
+
+    }
 }

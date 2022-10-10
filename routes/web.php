@@ -39,4 +39,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('edit-list/{id}', [AdminController::class, 'edit'])->name('admin.edit');
     Route::put('update-list/{id}', [AdminController::class, 'update'])->name('admin.update');
     Route::delete('delete/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
+    Route::post('ticket-check', [AdminController::class, 'ticket_check'])->name('admin.ticket');
+    Route::view('sukses', 'admin.update-status');
+    Route::view('gagal', 'admin.tidak-valid');
+    Route::view('sudah-terpakai', 'admin.sudah-terpakai');
 });

@@ -86,6 +86,22 @@
                     </p>
                   </a>
                 </li> 
+                <li class="nav-item">
+                  <a href="{{route('admin.list')}}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                      Daftar Pemesan
+                    </p>
+                  </a>
+                </li> 
+                <li class="nav-item">
+                  <a href="{{route('admin.checkin')}}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                      Check-In
+                    </p>
+                  </a>
+                </li> 
               </ul>
             </nav>
             <!-- /.sidebar-menu -->
