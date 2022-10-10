@@ -4,8 +4,7 @@
         <div class="container">
           <a class="navbar-brand">Pesan Tiket</a>
           <div class="nav-item d-flex">
-            <a class="nav-link me-2" href="#">Login</a>
-            <a class="nav-link" href="#">Register</a>
+            <a class="nav-link me-2" href="{{route('login')}}">Login</a>
           </div>
         </div>
       </nav>
