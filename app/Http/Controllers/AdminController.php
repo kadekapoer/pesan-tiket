@@ -12,8 +12,8 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $data = Ticket::all();
-        $belum_ditukar = Ticket::where('status',0);
-        $sudah_ditukar = Ticket::where('status',1);
+        $belum_ditukar = Ticket::where('status','0')->get();
+        $sudah_ditukar = Ticket::where('status','1')->get();
 
         return view('admin.dashboard', [
             'data' => $data,
