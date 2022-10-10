@@ -20,6 +20,7 @@
                       <th>Nama</th>
                       <th>email</th>
                       <th>Status Penukaran</th>
+                      <th>Aksi</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,7 @@
                         <span class="badge badge-success">Sudah Terpakai</span>
                         @endif
                       </td>
+                      <td> <a href='#' class="badge badge-info"><i class="fas fa-pen"></i> Update</a> | <a href="#" class="badge badge-danger"><i class="fa fa-trash"></i> Delete</a></td>
                     </tr>
                     @endforeach
                     </tbody>
@@ -44,6 +46,7 @@
                       <th>Nama</th>
                       <th>Email</th>
                       <th>Status Penukaran</th>
+                      <th>Aksi</th>
                     </tr>
                     </tfoot>
                   </table>
@@ -73,16 +76,16 @@
     <script src="{{asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 
     <script>
-        $(function () {
-          $('#example2').DataTable({
+        $(document).ready(function () {
+            $('#example2').DataTable({
             "paging": true,
             "lengthChange": false,
-            "searching": false,
+            "searching": true,
             "ordering": true,
             "info": true,
             "autoWidth": false,
             "responsive": true,
-          });
+            });
         });
       </script>
 
