@@ -71,9 +71,9 @@ class AdminController extends Controller
 
         if($data->exists()){
             if(Ticket::where('code', $request->code)->where('status', '0')->first()){
-                $tiket = Ticket::where('code', $request->code);
+                $tiket = Ticket::where('code', $request->code)->first();
                 $tiket->update(['status' => '1']);
-                return view('admin.update-status');
+                return view('admin.update-status', compact('tiket'));
             } else {
                 return view('admin.sudah-terpakai');
             }
